@@ -1,0 +1,97 @@
+[
+    {
+        "title": "AfroEarth USA",
+        "url": "us",
+        "id": "50011",
+        "country" : "US",
+        "countryFlag": "img/flags/us-flag.png",
+        "countries": [
+            "AUSTRALIA",
+            "CANADA",
+            "SOUTH AFRICA",
+            "UNITED KINGDOM"
+        ],
+        "countrieUrls": [
+            "/au",
+            "/can",
+            "/sa",
+            "/uk"
+        ]
+    },
+    {
+        "title": "AfroEarth UNITED KINGDOM",
+        "url": "uk",
+        "id": "50011",
+        "country" : "UK",
+        "countryFlag": "img/flags/uk-flag.png",
+        "countries": [
+            "AUSTRALIA",
+            "CANADA",
+            "SOUTH AFRICA",
+            "UNITED STATES"
+        ],
+        "countrieUrls": [
+            "/au",
+            "/can",
+            "/sa",
+            "/us"
+        ]
+    },
+    {
+        "title": "AfroEarth SOUTH AFRICA",
+        "url": "sa",
+        "id": "50011",
+        "country" : "SA",
+        "countryFlag": "img/flags/sa-flag.png",
+        "countries": [
+            "AUSTRALIA",
+            "CANADA",
+            "UNITED STATES",
+            "UNITED KINGDOM"
+        ],
+        "countrieUrls": [
+            "/au",
+            "/can",
+            "/us",
+            "/uk"
+        ]
+    },
+    {
+        "title": "AfroEarth CANADA",
+        "url": "can",
+        "id": "50011",
+        "country" : "CA",
+        "countryFlag": "img/flags/ca-flag.png",
+        "countries": [
+            "AUSTRALIA",
+            "UNITED STATES",
+            "SOUTH AFRICA",
+            "UNITED KINGDOM"
+        ],
+        "countrieUrls": [
+            "/au",
+            "/us",
+            "/sa",
+            "/uk"
+        ]
+    },
+    {
+        "title": "AfroEarth AUSTRALIA",
+        "url": "au",
+        "id": "50011",
+        "country" : "AU",
+        "countryFlag": "img/flags/au-flag.png",
+        "countries": [
+            "SOUTH AFRICA",
+            "UNITED STATES",
+            "SOUTH AFRICA",
+            "UNITED KINGDOM"
+        ],
+        "countrieUrls": [
+            "/sa",
+            "/us",
+            "/sa",
+            "/uk"
+        ]
+    }
+]

@@ -23,7 +23,7 @@ afroEarthApp.config(['$routeProvider', function($routeProvider){
       })
       .otherwise({
         redirectTo: '/'
-      });
+      })
 }]);
 /* Factory */
 afroEarthApp.factory('Single', ['$resource', function ($resource) {
@@ -39,13 +39,17 @@ afroEarthApp.filter('checkmark', function() {
     return input ? '\u2713' : '\u2718';
   }
 });
-
-afroEarthApp.controller('afroEarthMainCtrl',['$scope','$http','$location','$cookies', '$rootScope', '$window', function($scope, $http, $location, $cookies, $rootScope, $window) {
-    $http.get("js/afro.json").then(function(response) {
-        $scope.myDataFirst = response.data;
+var myId;
+afroEarthApp.value('myId', '');
+afroEarthApp.controller('afroEarthMainCtrl',['$scope','$http','$location','$cookies', '$rootScope', function($scope, $http, $location, $cookies, $rootScope) {
+    $http.get('js/afro.json').success(function(data,myId) {
+        $scope.myDataFirst = data;
         $scope.singleNiche = $scope.myDataFirst.US;
         $rootScope.header = $scope.singleNiche;
+        myId = data.US;
+        $rootScope.myDataVar = $scope.myDataFirst.US;
     });
+    console.log(myId);
     $scope.setCountry = function (choise) {
         switch (choise){
             case "US" : $scope.singleNiche = $scope.myDataFirst.US;
@@ -65,7 +69,7 @@ afroEarthApp.controller('afroEarthMainCtrl',['$scope','$http','$location','$cook
     $rootScope.bodylayout = "home-page";
 }]);
 
-afroEarthApp.controller('SingleCtrl',['$scope','$http', '$location', '$routeParams', 'Single', '$cookies', '$rootScope', function($scope, $http, $location, $routeParams, Single, $cookies, $rootScope) {
+afroEarthApp.controller('SingleCtrl',['$scope','$http', '$location', '$routeParams', 'Single', '$cookies', '$rootScope', 'myId', function($scope, $http, $location, $routeParams, Single, $cookies, $rootScope, myId) {
   $scope.niche = $routeParams.niche;
     $rootScope.bodylayout = "single-page";
   var url = 'sites/'+$routeParams.niche+'.json';
@@ -94,14 +98,15 @@ afroEarthApp.controller('SingleCtrl',['$scope','$http', '$location', '$routePara
             $rootScope.header = $scope.singleNiche;
         }
         $scope.setCountry(getCountry);
-        $rootScope.myid = $scope.singleNiche;
+        myId = $scope.singleNiche;
+
     })
     $rootScope.header = $scope.singleNiche;
 
 }]);
 
-afroEarthApp.run(function ($rootScope) {
-    $rootScope.$on('$viewContentLoaded', function () {
+afroEarthApp.run(function ($rootScope, $window) {
+    $rootScope.$on('$viewContentLoaded', function ($window) {
         $(window).load(function () {
             "use strict";
             // Parallax Effect
@@ -116,10 +121,13 @@ afroEarthApp.run(function ($rootScope) {
             }());
 
         });
+
         $(document).ready(function () {
+            console.log(myId);
             $(function () {
                 $('#form1').multiStepForm()
             });
+
             // PreLoader
             if ($(window).width() < 750) {
                 $("li.other-countries a").on("click", function (e) {
@@ -203,6 +211,8 @@ afroEarthApp.run(function ($rootScope) {
                     $(this).off('inview');
                 }
             });
+            
         });
+
     });
 });
