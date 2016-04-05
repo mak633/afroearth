@@ -1,0 +1,23 @@
+<!-- some code index.html -->
+
+  <!-- WLD CAMPAIGN TRACKING -->
+  <script type="text/javascript">
+    //var wld_app_id =  myId; from controller JSON 
+    var wld_app_id =  312312;
+    var wld_app_url = "us.afroearth.com";
+  </script>
+  <script type="text/javascript">
+    var num = Math.floor(Math.random() * 1000000 + 1);
+    document.write('<scri'+'pt src="//s.wldcdn.net/media/waldo/tracking/tracker.js?'+num+'"></'+'script>');
+    var wld_jsHost = (wld_app_url.match(/^https?:\/\//) ? "" + wld_app_url + "" : document.location.protocol + "//" + wld_app_url);
+    document.write(unescape("%3Cscript src='" + wld_jsHost + "/assets/generic/scripts/referral.js' type='text/javascript'%3E%3C/script%3E"));
+  </script>
+  <script type="text/javascript">
+    if (tracking.length){
+      document.write(unescape("%3Cscript src='" + wld_jsHost + "/api/tracking/?site=" + wld_app_id + "&" + tracking + "' type='text/javascript'%3E%3C/script%3E"));
+    }
+  </script>
+  <!-- WLD CAMPAIGN TRACKING -->
+
+
+  <!-- some code index.html -->
